@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Envelope</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope" id="envelope">
+            <div class="flap"></div>
+            <div class="body"></div>
+            <div class="shadow"></div>
+            <div class="letter-container">
+                <div class="letter" id="letter">
+                    <p>Will you be my Valentine? 💖</p>
+                    <div class="buttons">
+                        <button id="yes" onclick="window.location.href='yes.html'">Yes! 💘</button> <!-- Go to Yes page -->
+                        <button id="no" onclick="window.location.href='no.html'">No 😢</button> <!-- Go to No page -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="openEnvelope">Open 💌</button>
+            <button id="closeEnvelope">Close ❌</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

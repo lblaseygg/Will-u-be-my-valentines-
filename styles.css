@@ -1,0 +1,207 @@
+/* General styling */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+}
+
+/* Envelope container */
+.container {
+    position: relative;
+    width: 280px;
+    height: 250px;
+}
+
+/* Envelope body */
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ff4d6d;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Envelope flap */
+.flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff6b81;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Envelope shadow */
+.shadow {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    background: rgba(0, 0, 0, 0.2);
+    filter: blur(3px);
+    border-radius: 0 0 10px 10px;
+}
+
+/* Letter container */
+.letter-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden; /* Ensure the letter stays within bounds */
+    transform: translateX(-50%); /* Keep letter horizontally centered */
+}
+
+/* Cute paper letter */
+.letter {
+    position: relative;
+    width: 80%;
+    height: 60%;
+    background: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff4d6d;
+    border: 2px dashed #ff6b81;
+    transform: translateY(100%); /* Initially move it outside the envelope */
+    transition: transform 0.8s ease-in-out;
+}
+
+/* Show letter when envelope opens */
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    transform: translateY(-20%); /* Move it completely up into view */
+}
+
+/* Hide letter when envelope closes */
+.envelope.close .letter {
+    transform: translateY(100%); /* Ensure the letter stays fully out of view */
+}
+
+/* Controls */
+.controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.controls button {
+    margin: 5px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    background: #ff4d6d;
+    color: white;
+}
+
+.controls button:hover {
+    background: #ff6b81;
+}
+
+/* Valentine buttons */
+.buttons {
+    margin-top: 15px;
+}
+
+.buttons button {
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+#yes {
+    background: #ff66b2;
+    color: white;
+}
+
+#yes:hover {
+    background: #ff3385;
+    transform: scale(1.1);
+}
+
+#no {
+    background: #b2b2b2;
+    color: white;
+}
+
+#no:hover {
+    background: #808080;
+    transform: scale(1.1);
+}
+
+/* Specific styling for "Yes" page */
+#yesPage {
+    background: linear-gradient(135deg, #ff9a9e, #ff66b2); /* Slight variation for contrast */
+}
+
+.yestext {
+    color: white;
+}
+
+#yesPage h1 {
+    color: white;
+}
+
+#yesPage .buttons button {
+    background: #ff66b2;
+}
+
+#yesPage .buttons button:hover {
+    background: #ff3385;
+}
+
+/* Specific styling for "No" page */
+#noPage {
+    background: linear-gradient(135deg, #ff9a9e, #b2b2b2); /* Slight variation for contrast */
+}
+
+#noPage h1 {
+    color: #808080;
+}
+
+#noPage .buttons button {
+    background: #b2b2b2;
+}
+
+#noPage .buttons button:hover {
+    background: #808080;
+}
+
+/* Responsive GIF container */
+.gif-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Styling the GIF */
+.heart-gif {
+    max-width: 100%;
+    height: auto;
+    width: 200px; /* Set a fixed width or use percentage for responsiveness */
+}
