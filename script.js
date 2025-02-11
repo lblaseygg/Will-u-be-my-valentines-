@@ -31,6 +31,7 @@ function sendResponse(answer, redirectPage) {
         mode: 'cors'
     })
     .then(response => {
+        console.log("Response status:", response.status);
         if (response.ok) {
             alert("Your response has been sent!");
             // After sending the response, redirect to the specified page
