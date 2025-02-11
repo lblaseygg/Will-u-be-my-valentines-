@@ -9,11 +9,13 @@ document.getElementById("closeEnvelope").addEventListener("click", function() {
 });
 
 document.getElementById("yes").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent any default form behavior (especially on mobile)
     event.stopPropagation();
     sendResponse("Yes", "yes.html");  // Redirect to yes.html after sending response
 });
 
 document.getElementById("no").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent any default form behavior (especially on mobile)
     event.stopPropagation();
     sendResponse("No", "no.html");  // Redirect to no.html after sending response
 });
@@ -25,11 +27,18 @@ function sendResponse(answer, redirectPage) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({ answer: answer })
-    }).then(response => {
-        alert("Your response has been sent!");
-        // After sending the response, redirect to the specified page
-        window.location.href = redirectPage;
-    }).catch(error => {
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Your response has been sent!");
+            // After sending the response, redirect to the specified page
+            window.location.href = redirectPage;
+        } else {
+            throw new Error("Form submission failed.");
+        }
+    })
+    .catch(error => {
         console.error("Error:", error);
+        alert("Something went wrong. Please try again.");
     });
 }
