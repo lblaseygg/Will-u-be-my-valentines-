@@ -21,12 +21,14 @@ document.getElementById("no").addEventListener("click", function(event) {
 });
 
 function sendResponse(answer, redirectPage) {
+    console.log("Sending response:", answer);
     fetch("https://formspree.io/f/mjkgodye", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ answer: answer })
+        body: JSON.stringify({ answer: answer }),
+        mode: 'cors'
     })
     .then(response => {
         if (response.ok) {
